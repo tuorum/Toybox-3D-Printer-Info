@@ -1,0 +1,248 @@
+Reference https://reprap.org/wiki/G-code as well as Marlin https://marlinfw.org/meta/gcode/ since there is a mix.
+Also be aware of Marlin version, as there is a mix.  Will try to add supported versions.
+
+G0   -> G1
+G1   - Coordinated Movement X Y Z E
+G2   - CW ARC
+G3   - CCW ARC
+G4   - Dwell S<seconds> or P<milliseconds>
+G10  - Retract filament according to settings of M207 (Requires FWRETRACT)
+G11  - Retract recover filament according to settings of M208 (Requires FWRETRACT)
+G20  - Set input units to inches (Requires INCH_MODE_SUPPORT)
+G21  - Set input units to millimeters (Requires INCH_MODE_SUPPORT)
+G28  - Home one or more axes
+G29  - Start or continue the bed leveling probe procedure (Requires bed leveling)  -- enabled but does not work.
+G30  - Single Z probe, probes bed at X Y location (defaults to current XY location)
+G31  - Dock sled (Z_PROBE_SLED only)
+G32  - Undock sled (Z_PROBE_SLED only)    --  VERY bad idea.
+G33  - Delta Auto-Calibration (Requires DELTA_AUTO_CALIBRATION)
+G34  - Z Stepper automatic alignment using probe: I<iterations> T<accuracy> A<amplification> (Requires Z_STEPPER_AUTO_ALIGN)
+G38  - Probe in any direction using the Z_MIN_PROBE (Requires G38_PROBE_TARGET)
+G42  - Coordinated move to a mesh point (Requires MESH_BED_LEVELING, AUTO_BED_LEVELING_BLINEAR, or AUTO_BED_LEVELING_UBL)
+G80  - Cancel current motion mode (Requires GCODE_MOTION_MODES)
+G90  - Use Absolute Coordinates
+G91  - Use Relative Coordinates
+G92  - Set current position to coordinates given
+G131 - Set extruder offset position to 0 - needed for calibration with G132	calibration	G131
+G132 - Calibrate endstop positions. Call this, after calling G131 and after centering the extruder holder.	calibration	G132
+G133 - Measure steps until max endstops for deltas. Can be used to detect lost steps within tolerances of endstops.	calibration	G133
+G134 - Px Sx Zx Calibrate nozzle height difference (need z probe in nozzle!) Px = reference extruder, Sx = only measure extrude x against reference, Zx = add to measured z distance for Sx for correction.	calibration	[G134]
+
+"M" Codes
+
+M3   - Turn ON Laser | Spindle (clockwise), set Power | Speed. (Requires SPINDLE_FEATURE or LASER_FEATURE)
+M4   - Turn ON Laser | Spindle (counter-clockwise), set Power | Speed. (Requires SPINDLE_FEATURE or LASER_FEATURE)
+M5   - Turn OFF Laser | Spindle. (Requires SPINDLE_FEATURE or LASER_FEATURE)
+M20  - List SD card. (Requires SDSUPPORT)
+M21  - Init SD card. (Requires SDSUPPORT)
+M22  - Release SD card. (Requires SDSUPPORT)
+M23  - Select SD file: "M23 /path/file.gco". (Requires SDSUPPORT)
+M24  - Start/resume SD print. (Requires SDSUPPORT)
+M25  - Pause SD print. (Requires SDSUPPORT)
+M26  - Set SD position in bytes: "M26 S12345". (Requires SDSUPPORT)
+M27  - Report SD print status. (Requires SDSUPPORT)
+OR, with 'S<seconds>' set the SD status auto-report interval. (Requires AUTO_REPORT_SD_STATUS)
+OR, with 'C' get the current filename.
+M28  - Start SD write: "M28 /path/file.gco". (Requires SDSUPPORT)
+M29  - Stop SD write. (Requires SDSUPPORT)
+M30  - Delete file from SD: "M30 /path/file.gco"
+M32  - Select file and start SD print: "M32 [S<bytepos>] !/path/file.gco#". (Requires SDSUPPORT)
+Use P to run other files as sub-programs: "M32 P !filename#"
+The '#' is necessary when calling from within sd files, as it stops buffer prereading
+M42  - Change pin status via gcode: M42 P<pin> S<value>. LED pin assumed if P is omitted.
+M80  - Turn on Power Supply. (Requires PSU_CONTROL)
+M81  - Turn off Power Supply. (Requires PSU_CONTROL)
+M82  - Set E codes absolute (default).
+M83  - Set E codes relative while in Absolute (G90) mode.
+M84  - Disable steppers until next move, or use S<seconds> to specify an idle
+duration after which steppers should turn off. S0 disables the timeout.
+M85  - Set inactivity shutdown timer with parameter S<seconds>. To disable set zero (default)
+M92  - Set planner.settings.axis_steps_per_mm for one or more axes.
+M104 - Set extruder target temp.
+M105 - Report current temperatures.
+M106 - Set print fan speed.
+M107 - Print fan off.
+M109 - S<temp> Wait for extruder current temp to reach target temp. 		 Wait only when heating!
+R<temp> Wait for extruder current temp to reach target temp. 		 Wait for heating or cooling.
+If AUTOTEMP is enabled, S<mintemp> B<maxtemp> F<factor>. Exit autotemp by any M109 without F
+M110 - Set the current line number. (Used by host printing)
+M111 - Set debug flags: "M111 S<flagbits>". See flag bits defined in enum.h.
+M114 - Report current position.
+M115 - Report capabilities. (Extended capabilities requires EXTENDED_CAPABILITIES_REPORT)
+	FIRMWARE_NAME:Robin
+	Printed filament:470.31m Printing time:4 days 5 hours 56 min
+	PrinterMode:FFF
+M117 - Display a message on the controller screen. (Requires an LCD)
+M119 - Report endstops status.
+M140 - Set bed target temp. S<temp>
+M190 - S<temp> Wait for bed current temp to reach target temp. 		 Wait only when heating!
+R<temp> Wait for bed current temp to reach target temp. 		 Wait for heating or cooling.
+M200 - Set filament diameter, D<diameter>, setting E axis units to cubic. (Use S0 to revert to linear units.)
+M201 - Set max acceleration in units/s^2 for print moves: "M201 X<accel> Y<accel> Z<accel> E<accel>"
+M202 - Set max acceleration in units/s^2 for travel moves: "M202 X<accel> Y<accel> Z<accel> E<accel>" "		 UNUSED IN MARLIN!
+M203 - Set maximum feedrate: "M203 X<fr> Y<fr> Z<fr> E<fr>" in units/sec.
+M204 - Set default acceleration in units/sec^2: P<printing> R<extruder_only> T<travel>
+M205 - Output EEPROM settings.
+	M206 T3 P200 X90.597   (was 92.617)
+	M206 T3 P15 X50
+	M206 T3 P19 X50
+	M206 T3 P39 X7
+	M206 T3 P51 X700
+	M206 T3 P55 X700
+	M104 200
+	M221 S90
+		EPR:0 1028 255 Language
+		EPR:2 75 250000 Baudrate
+		EPR:3 129 461.586 Filament printed [m]
+		EPR:2 125 356644 Printer active [s]
+		EPR:2 79 0 Max. inactive time [ms,0=off]
+		EPR:2 83 60000 Stop stepper after inactivity [ms,0=off]
+		EPR:3 3 94.1177 X-axis steps per mm
+		EPR:3 7 94.1177 Y-axis steps per mm
+		EPR:3 11 400.0000 Z-axis steps per mm
+		EPR:3 15 100.000 X-axis max. feedrate [mm/s]
+		EPR:3 19 100.000 Y-axis max. feedrate [mm/s]
+		EPR:3 23 10.000 Z-axis max. feedrate [mm/s]
+		EPR:3 27 30.000 X-axis homing feedrate [mm/s]
+		EPR:3 31 30.000 Y-axis homing feedrate [mm/s]
+		EPR:3 35 5.000 Z-axis homing feedrate [mm/s]
+		EPR:3 39 20.000 Max. jerk [mm/s]
+		EPR:3 47 0.300 Max. Z-jerk [mm/s]
+		EPR:3 133 0.000 X min pos [mm]
+		EPR:3 137 0.000 Y min pos [mm]
+		EPR:3 141 0.000 Z min pos [mm]
+		EPR:3 145 80.000 X max length [mm]
+		EPR:3 149 80.000 Y max length [mm]
+		EPR:3 153 98.000 Z max length [mm]
+		EPR:3 51 1000.000 X-axis acceleration [mm/s^2]
+		EPR:3 55 1000.000 Y-axis acceleration [mm/s^2]
+		EPR:3 59 25.000 Z-axis acceleration [mm/s^2]
+		EPR:3 63 1000.000 X-axis travel acceleration [mm/s^2]
+		EPR:3 67 1000.000 Y-axis travel acceleration [mm/s^2]
+		EPR:3 71 25.000 Z-axis travel acceleration [mm/s^2]
+		EPR:3 1024 0.000 Coating thickness [mm]
+		EPR:0 880 0 Autolevel active (1/0)
+		EPR:0 1020 0 Enable retraction conversion [0/1]
+		EPR:3 992 3.000 Retraction length [mm]
+		EPR:3 1000 40.000 Retraction speed [mm/s]
+		EPR:3 1004 0.000 Retraction z-lift [mm]
+		EPR:3 1008 0.000 Extra extrusion on undo retract [mm]
+		EPR:3 1016 20.000 Retraction undo speed
+		EPR:3 200 92.617 Extr.1 steps per mm
+		EPR:3 204 100.000 Extr.1 max. feedrate [mm/s]
+		EPR:3 208 20.000 Extr.1 start feedrate [mm/s]
+		EPR:3 212 1000.000 Extr.1 acceleration [mm/s^2]
+		EPR:0 216 1 Extr.1 heat manager [0-3]
+		EPR:0 217 230 Extr.1 PID drive max
+		EPR:0 245 40 Extr.1 PID drive min
+		EPR:3 218 24.2800 Extr.1 PID P-gain/dead-time
+		EPR:3 222 3.1900 Extr.1 PID I-gain
+		EPR:3 226 46.2400 Extr.1 PID D-gain
+		EPR:0 230 255 Extr.1 PID max value [0-255]
+		EPR:2 231 0 Extr.1 X-offset [steps]
+		EPR:2 235 0 Extr.1 Y-offset [steps]
+		EPR:2 290 0 Extr.1 Z-offset [steps]
+		EPR:1 239 1 Extr.1 temp. stabilize time [s]
+		EPR:1 250 150 Extr.1 temp. for retraction when heating [C]
+		EPR:1 252 0 Extr.1 distance to retract when heating [mm]
+		EPR:0 254 255 Extr.1 extruder cooler speed [0-255]
+M206 T[type] P[pos] [S(long)|X(float)]- Set EEPROM setting.
+	T[type] Value type
+	P[pos] Value position
+	[S(long)] An integer value
+	[X(float)] A float value
+	ex: M206 T3 P1004 X0.05 -- change Retraction Z-Lift to 0.05mm (reference above M205 output)
+
+M207 - Set Retract Length: S<length>, Feedrate: F<units/min>, and Z lift: Z<distance>. (Requires FWRETRACT)
+M209 - Turn Automatic Retract Detection on/off: S<0|1> (For slicers that don't support G10/11). (Requires FWRETRACT_AUTORETRACT)
+	Every normal extrude-only move will be classified as retract depending on the direction.
+M220 - Set Feedrate Percentage: "M220 S<percent>" (i.e., "FR" on the LCD)
+M221 - Set Flow Percentage: "M221 S<percent>"
+M226 - Wait until a pin is in a given state: "M226 P<pin> S<state>"
+M251 - Measure Z steps from homing stop.
+M281 - [X0]	Test if watchdog is running and working. Use M281 X0 to disable watchdog on AVR boards. Sometimes needed for boards with old bootloaders to allow reflashing.
+M302 - Allow cold extrudes, or set the minimum extrude S<temperature>. (Requires PREVENT_COLD_EXTRUSION)
+M303 - PID relay autotune S<temperature> sets the target temperature. Default 150C. (Requires PIDTEMP)
+M350 - Set microstepping mode. (Requires digital microstepping pins.)
+M355 - Set Case Light on/off and set brightness. (Requires CASE_LIGHT_PIN)
+M360 - Marlin says: SCARA calibration: Move to cal-position ThetaA (0 deg calibration)
+       But ToyBox is Repetier: Report firmware configuration
+	Config:InputBuffer:95
+	Config:NumExtruder:1
+	Config:MixingExtruder:0
+	Config:HeatedBed:0
+	Config:SDCard:1
+	Config:Fan:1
+	Config:Fan2:1
+	Config:LCD:0
+	Config:SoftwarePowerSwitch:0
+	Config:XHomeDir:1
+	Config:YHomeDir:1
+	Config:ZHomeDir:-1
+	Config:SupportG10G11:1
+	Config:SupportLocalFilamentchange:1
+	Config:CaseLights:0
+	Config:ZProbe:0
+	Config:Autolevel:1
+	Config:EEPROM:1
+	Config:PrintlineCache:16
+	Config:JerkXY:7.00
+	Config:KeepAliveInterval:2000
+	Config:JerkZ:0.30
+	Config:RetractionLength:3.00
+	Config:RetractionLongLength:13.00
+	Config:RetractionSpeed:40.00
+	Config:RetractionZLift:0.00
+	Config:RetractionUndoExtraLength:0.00
+	Config:RetractionUndoExtraLongLength:0.00
+	Config:RetractionUndoSpeed:20.00
+	Config:XMin:0.00
+	Config:YMin:0.00
+	Config:ZMin:0.00
+	Config:XMax:80.00
+	Config:YMax:80.00
+	Config:ZMax:88.00
+	Config:XSize:80.00
+	Config:YSize:80.00
+	Config:ZSize:88.00
+	Config:XPrintAccel:700.00
+	Config:YPrintAccel:700.00
+	Config:ZPrintAccel:25.00
+	Config:XTravelAccel:1000.00
+	Config:YTravelAccel:1000.00
+	Config:ZTravelAccel:25.00
+	Config:PrinterType:Cartesian
+	Config:MaxBedTemp:150.00
+	Config:Extr.1:Jerk:20.00
+	Config:Extr.1:MaxSpeed:100.00
+	Config:Extr.1:Acceleration:1000.00
+	Config:Extr.1:Diameter:0.00
+	Config:Extr.1:MaxTemp:275.00
+
+M400 - Finish all moves.
+M401 - Deploy and activate Z probe. (Requires a probe)
+M402 - Deactivate and stow Z probe. (Requires a probe)
+M450 - Reports printer mode
+M451 - Set printer mode to FFF (3d printing)
+M452 - Set printer mode to laser (not implemented, just sets to FFF)
+M453 - Set printer mode to CNC (not implemented, just sets to FFF)
+M500 - Store parameters in EEPROM. (Requires EEPROM_SETTINGS)
+M501 - Restore parameters from EEPROM. (Requires EEPROM_SETTINGS)
+M502 - Revert to the default "factory settings". "		 Does not write them to EEPROM!
+M601 - S{1/0} Pause extruders. Paused extrudes disable heaters and motor. Unpausing reheats extruder to old temp.
+M603 - Configure filament change: "M603 T<tool> U<unload_length> L<load_length>". (Requires ADVANCED_PAUSE_FEATURE)
+M602	S{1/0} P{1/0}	Debug jam control (S) Disable jam control (P). If enabled it will log signal changes and will not trigger jam errors!		[M602]
+++++ 	 M701 - Load filament (Requires FILAMENT_LOAD_UNLOAD_GCODES)
+++++ 	 M702 - Unload filament (Requires FILAMENT_LOAD_UNLOAD_GCODES)
+M907 - Set digital trimpot motor current using axis codes. (Requires a board with digital trimpots)
+M908 - Control digital trimpot directly. (Requires DAC_STEPPER_CURRENT or DIGIPOTSS_PIN)
+M909 - Print digipot/DAC current value. (Requires DAC_STEPPER_CURRENT)
+++++ 	 M997 - Perform in-application firmware update
+M999 - Restart after being stopped by error
+
+Custom codes - This can change to suit future G-code regulations
+
+"T" Codes
+
+T0-T3 - Select an extruder (tool) by index: "T<n> F<units/min>"
+
