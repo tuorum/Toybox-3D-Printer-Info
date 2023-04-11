@@ -1,0 +1,182 @@
+>MACHINETPYE0     # Machine type  0:Cartesian  1:DELTA  2:COREXY
+>HAS_TEMP_BED0     # whether enable the heated bed  1:Enable  0:Disable
+>EXTRUDERS1     # This defines the number of extruders
+>cfg_language_adjust_type1     # multi-language  1:Enable  0:Disable
+>cfg_language_type1     # languages setting,this configuration is valid when "Multi-language" is ‘Disable’  1:Simplified Chinese  2:Traditional Chinese  3:English  4:Russian  5:Spanish  6:French  7:Italian
+>Z2_STEPPER_DRIVERS0     # Enable Z2 stepper drivers  1:Enable Z_dual  0:Disable
+>X_MIN_POS0     # MIN X-axis distance
+>Y_MIN_POS0     # MIN Y-axis distance
+>Z_MIN_POS0     # MIN Z-axis distance
+>X_MAX_POS80     # MAX X-axis distance
+>Y_MAX_POS80     # MAX Y-axis distance
+>Z_MAX_POS94     # MAX Z-axis distance
+>FILAMENT_CHANGE_X_POS35     # X position of hotend  for filament change and pause print
+>FILAMENT_CHANGE_Y_POS35     # Y position of hotend  for filament change and pause print
+>FILAMENT_CHANGE_Z_ADD20     # Z position of hotend (lift) for filament change and pause print
+>HOTEND_OFFSET_X20.00     # (in mm) offset of the second hotend on the X axis ,Offsets for the first hotend must be 0.0.
+>HOTEND_OFFSET_Y5.00     # (in mm) offset of the second hotend on the Y axis ,Offsets for the first hotend must be 0.0.
+>INVERT_X_DIR0     # Invert the stepper direction.
+>INVERT_Y_DIR1     # Y motor direction, 1 goes opposite direction
+>INVERT_Z_DIR1     # Z motor direction, 1 goes opposite direction
+>INVERT_E0_DIR1     # E0 motor direction, 1 goes opposite direction
+>INVERT_E1_DIR1     # E1 motor direction, 1 goes opposite direction
+>DEFAULT_X_STEPS_PER_UNIT94     # X steps per mm
+>DEFAULT_Y_STEPS_PER_UNIT94     # Y steps per mm
+>DEFAULT_Z_STEPS_PER_UNIT385     # Z steps per mm
+>DEFAULT_E0_STEPS_PER_UNIT92.617     # E0 steps per mm
+>DEFAULT_E1_STEPS_PER_UNIT92.617     # E1 steps per mm
+>DEFAULT_X_MAX_FEEDRATE150     # the Max feedrate of X moving mm/s
+>DEFAULT_Y_MAX_FEEDRATE150     # the Max feedrate of Y moving mm/s
+>DEFAULT_Z_MAX_FEEDRATE10     # the Max feedrate of Z moving mm/s
+>DEFAULT_E0_MAX_FEEDRATE100     # the Max feedrate of E0 moving mm/s
+>DEFAULT_E1_MAX_FEEDRATE100     # the Max feedrate of E1 moving mm/s
+>DEFAULT_X_MAX_ACCELERATION1000     # the Max acculeration of X printing mm/s^2
+>DEFAULT_Y_MAX_ACCELERATION1000     # the Max acculeration of Y printing mm/s^2
+>DEFAULT_Z_MAX_ACCELERATION25     # the Max acculeration of Z printing mm/s^2
+>DEFAULT_E0_MAX_ACCELERATION1000     # the Max acculeration of E0 printing mm/s^2
+>DEFAULT_E1_MAX_ACCELERATION1000     # the Max acculeration of E1 printing mm/s^2
+>DEFAULT_ACCELERATION1000     # X, Y, Z and E acceleration for printing moves mm/s^2
+>DEFAULT_RETRACT_ACCELERATION1000     # X, Y, Z and E acceleration for retracts mm/s^2
+>DEFAULT_TRAVEL_ACCELERATION1000     # X, Y, Z acceleration for travel (non printing) moves mm/s^2
+>DEFAULT_MINIMUMFEEDRATE0.0     # default minimum feedrate
+>DEFAULT_MINSEGMENTTIME20000     # minimum time in microseconds that a movement needs to take if the buffer is emptied. 
+>DEFAULT_MINTRAVELFEEDRATE0.0     # default minimum travel feedrate
+>DEFAULT_XJERK20.0     # Default Axis-X Jerk (mm/s)
+>DEFAULT_YJERK20.0     # Default Axis-Y Jerk (mm/s)
+>DEFAULT_ZJERK0.3     # Default Axis-Z Jerk (mm/s)
+>DEFAULT_EJERK5.0     # Default Axis-E Jerk (mm/s)
+>X_ENABLE_ON0     # Level_EnablePin_X  0:Low  1:Hight
+>Y_ENABLE_ON0     # Level_EnablePin_Y  0:Low  1:Hight
+>Z_ENABLE_ON0     # Level_EnablePin_Z  0:Low  1:Hight
+>E_ENABLE_ON0     # Level_EnablePin_E  0:Low  1:Hight
+>TEMP_SENSOR_01     # Temp sensor type  1:100k thermistor  -3:MAX31855 thermocouple
+>EXTRUDE_MINTEMP180     # Extrusion head set minimum temperature
+>HEATER_0_MINTEMP5     # Extrusion head0 set minimum temperature
+>HEATER_0_MAXTEMP245     # Extrusion head0 set maximum temperature
+>HEATER_1_MINTEMP5     # Extrusion head1 set minimum temperature
+>HEATER_1_MAXTEMP245     # Extrusion head1 set maximum temperature
+>BED_MAXTEMP0     # Set the maximum temperature of the Heated bed
+>THERMAL_PROTECTION_PERIOD45     # Extrusion thermal protection period,unit:Seconds;When the machine frequently appears Err7, the current value can be appropriately increased.
+>THERMAL_PROTECTION_HYSTERESIS5     # Extrusion thermal protection hysteresis Degrees Celsius
+>WATCH_TEMP_PERIOD45     # Extrusion watch temp period,unit:Seconds;When the machine frequently appears Err5, the current value can be appropriately increased.
+>WATCH_TEMP_INCREASE2     # Extrusion watch temp incerease Degrees Celsius
+>WATCH_BED_TEMP_PERIOD45     # Bed temp period,unit:Seconds;When the machine frequently appears Err6, the current value can be appropriately increased.
+>WATCH_BED_TEMP_INCREASE2     # Bed temp incerease Degrees Celsius
+>THERMAL_PROTECTION_BED_PERIOD45     # Bed thermal protection period,unit:Seconds;When the machine frequently appears Err7, the current value can be appropriately increased.
+>THERMAL_PROTECTION_BED_HYSTERESIS5     # Bed thermal protection hysteresis Degrees Celsius
+>PIDTEMPE1     # Type of heat manager for extruder  1:PID  0:bang-bang
+>DEFAULT_Kp24.2800     # the P setting of extruder
+>DEFAULT_Ki3.19     # the I setting of extruder
+>EXT_PID_D46.2400     # the D setting of extruder
+>PIDTEMPBED0     # Type of heat manager for heated bed  1:PID  0:bang-bang
+>DEFAULT_bedKp10.00     # the P setting of heated bed
+>DEFAULT_bedKi0.023     # the I setting of heated bed
+>DEFAULT_bedKd305.4     # the D setting of heated bed
+>MIN_SOFTWARE_ENDSTOPS0     # Min software endstops  0:Disable  1:Enable
+>MAX_SOFTWARE_ENDSTOPS1     # MAX software endstops  0:Disable  1:Enable
+>X_MIN_ENDSTOP_INVERTING1     # ENDSTOP_X_MIN_INVERTING  0:Always-off  1:Always-on
+>Y_MIN_ENDSTOP_INVERTING1     # ENDSTOP_Y_MIN_INVERTING  0:Always-off  1:Always-on
+>Z_MIN_ENDSTOP_INVERTING1     # ENDSTOP_Z_MIN_INVERTING  0:Always-off  1:Always-on
+>X_MAX_ENDSTOP_INVERTING1     # ENDSTOP_X_MAX_INVERTING  0:Always-off  1:Always-on
+>ENDSTOP_Y_MAX_INVERTING1     # ENDSTOP_Y_MAX_INVERTING  0:Always-off  1:Always-on
+>Z_MAX_ENDSTOP_INVERTING1     # ENDSTOP_Z_MAX_INVERTING  0:Always-off  1:Always-on
+>Z_MIN_PROBE_ENDSTOP_INVERTING1     # set to true to invert the logic of the Z_PROBE endstop.  0:Always-off  1:Always-on
+>FIL_RUNOUT_INVERTING0     # set to true to invert the logic of the Filament Runout Sensor.  0:Always-off  1:Always-on
+>USE_XMIN_PLUG1     # XMIN_PLUG,Specify here all the endstop connectors that are connected to any endstop or probe.  0:noused  1:used
+>USE_YMIN_PLUG1     # YMIN_PLUG,Specify here all the endstop connectors that are connected to any endstop or probe.  0:noused  1:used
+>USE_ZMIN_PLUG1     # ZMIN_PLUG,Specify here all the endstop connectors that are connected to any endstop or probe.  0:noused  1:used
+>USE_XMAX_PLUG0     # XMAX_PLUG,Specify here all the endstop connectors that are connected to any endstop or probe.  0:noused  1:used
+>USE_YMAX_PLUG0     # YMAX_PLUG,Specify here all the endstop connectors that are connected to any endstop or probe.  0:noused  1:used
+>USE_ZMAX_PLUG0     # ZMAX_PLUG,Specify here all the endstop connectors that are connected to any endstop or probe.  0:noused  1:used
+>X_HOME_DIR-1     # X Homing direction  -1:MIN  1:MAX
+>Y_HOME_DIR-1     # Y Homing direction  -1:MIN  1:MAX
+>Z_HOME_DIR-1     # Z Homing direction  -1:MIN  1:MAX
+>HOME_Y_BEFORE_X0     # Homing direction When G28 is called  0:X home before Y  1:Y home before X
+>HOMING_FEEDRATE_XY2400     # Homing X Y speeds (mm/m)
+>HOMING_FEEDRATE_Z300     # Homing Z speeds (mm/m)
+>Z_MIN_PROBE_PIN_MODE0     # Select for a probe connected to Z-Min or Z-Max.  0:NULL  1:ZMIN  2:ZMAX
+>BLTOUCH0     # BLTOUCH  0:Disable  1:Enable
+>Z_PROBE_OFFSET_FROM_EXTRUDER0     # Z offset: -below +above  [the nozzle]
+>X_PROBE_OFFSET_FROM_EXTRUDER0     # X offset: -below +above  [the nozzle]
+>Y_PROBE_OFFSET_FROM_EXTRUDER0     # Y offset: -below +above  [the nozzle]
+>XY_PROBE_SPEED4000     # X and Y axis travel speed (mm/m) between probes
+>Z_PROBE_SPEED_FAST600     # Speed for the first approach when double-probing (with PROBE_DOUBLE_TOUCH)
+>Z_PROBE_SPEED_SLOW300     # Speed for the "accurate" probe of each point
+>cfg_insert_det_module0     # Assemble power outage module  1:MKS 220det  0:MKS pwc
+>cfg_have_ups_device0     # whether have ups device  1:Yes  0:No
+>cfg_print_over_auto_close0     # auto-off when print finishes  1:Yes  0:No
+>cfg_filament_det0_trigger_level0     # the level signal of outage detection E0 module  1:High level  0:Low level
+>cfg_filament_det1_trigger_level0     # the level signal of outage detection E1 module  1:High level  0:Low level
+>cfg_filament_load_length100     # the lenght to extrude filament (mm),Max:2000mm
+>cfg_filament_load_speed1000     # the speed to extrude filament(mm/min)
+>cfg_filament_load_limit_temperature200     # It is the minimum temperature to extrude filament .
+>cfg_filament_unload_length100     # the lenght to retract filament (mm),Max:2000mm
+>cfg_filament_unload_speed1000     # the speed to retract filament(mm/min)
+>cfg_filament_unload_limit_temperature200     # It is the minimum temperature to retract filament .
+>cfg_leveling_mode0     # Leveling mode  1:Auto-leveling  0:Manual leveling
+>cfg_point_number5     # the point number of manual leveling  3:3  4:4  5:5
+>cfg_point1:70,70     # the point1 location of  manual leveling(x,y)
+>cfg_point2:70,10     # the point2 location of  manual leveling(x,y)
+>cfg_point3:10,10     # the point3 location of  manual leveling(x,y)
+>cfg_point4:10,70     # the point4 location of  manual leveling(x,y)
+>cfg_point5:35,35     # the point5 location of  manual leveling(x,y)
+>cfg_auto_leveling_cmd:G28;G29;     # the setting of auto-leveling command button
+>BED_LEVELING_METHOD0     # Leveling mode  0:NULL_BED_LEVELING  3:AUTO_BED_LEVELING_BILINEAR  5:MESH_BED_LEVELING
+>GRID_MAX_POINTS_X3     # the number of X grid points per dimension. <= 15
+>GRID_MAX_POINTS_Y3     # the number of Y grid points per dimension. <= 15
+>Z_CLEARANCE_DEPLOY_PROBE20     # Z Clearance for Deploy/Stow
+>Z_CLEARANCE_BETWEEN_PROBES20     # Z Clearance between probe points
+>LEFT_PROBE_BED_POSITION30     # Left position. Set the boundaries for probing (where the probe can reach)
+>RIGHT_PROBE_BED_POSITION180     # Right position. Set the boundaries for probing (where the probe can reach)
+>FRONT_PROBE_BED_POSITION30     # Front position. Set the boundaries for probing (where the probe can reach)
+>BACK_PROBE_BED_POSITION180     # Back position. Set the boundaries for probing (where the probe can reach)
+>MESH_INSET20     #  Mesh inset margin on print area for MESH_BED_LEVELING
+>DELTA_SEGMENTS_PER_SECOND40     # DELTA_SEGMENTS_PER_SECOND
+>DELTA_DIAGONAL_ROD346.75     # Center-to-center distance of the holes in the diagonal push rods.
+>DELTA_SMOOTH_ROD_OFFSET211.5     # Horizontal offset from middle of printer to smooth rod center.
+>DELTA_EFFECTOR_OFFSET28     # Horizontal offset of the universal joints on the end effector.
+>DELTA_CARRIAGE_OFFSET14.5     # Horizontal offset of the universal joints on the carriages.
+>DELTA_RADIUS169     # Horizontal distance bridged by diagonal push rods when effector is centered.	
+>DELTA_HEIGHT302     # height from z=0.00 to home position
+>DELTA_PRINTABLE_RADIUS125     # Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
+>DELTA_CALIBRATION_RADIUS100     # set the radius for the calibration probe points - max 0.8 * DELTA_PRINTABLE_RADIUS 
+>CFG_WIFI_MODE1     # WIFI mode  0:STA  1:AP
+>CFG_WIFI_AP_NAMEMKSWIFI     # WIFI name
+>CFG_WIFI_KEY_CODEmakerbase     # WIFI password
+>CFG_CLOUD_ENABLE1     # cloud service  0:Disable  1:Enable
+>CFG_WIFI_CLOUD_HOSTtoyboxwebsite.herokuapp.com     # cloud service adress
+>CFG_CLOUD_PORT80     # cloud service port
+>setmenu_func1_display1     # user-defined function1  0:None  1:display
+>setmenu_func1:M84;     # user-defined function1 command，each command must be separated by semicolon ";"
+>moreitem_pic_cnt0     # the number of "more" button 
+>moreitem_button1_cmd:G28 X0;G28 Y0;G28 Z0;     # Button1 command edit, each command must be separated by semicolon ";"
+>moreitem_button2_cmd:G28 X0;G28 Y0;G28 Z0;     # Button2 command edit, each command must be separated by semicolon ";"
+>moreitem_button3_cmd:G28 X0;G28 Y0;G28 Z0;     # Button3 command edit, each command must be separated by semicolon ";"
+>moreitem_button4_cmd:G28 X0;G28 Y0;G28 Z0;     # Button4 command edit, each command must be separated by semicolon ";"
+>moreitem_button5_cmd:G28 X0;G28 Y0;G28 Z0;     # Button5 command edit, each command must be separated by semicolon ";"
+>moreitem_button6_cmd:G28 X0;G28 Y0;G28 Z0;     # Button6 command edit, each command must be separated by semicolon ";"
+>moreitem_button7_cmd:G28 X0;G28 Y0;G28 Z0;     # Button7 command edit, each command must be separated by semicolon ";"
+>morefunc_cnt:0     # the number of "more" button to dispaly on printing interface
+>morefunc1_cmd:G28;     # command edit of "more" button1 to dispaly on printing interface, each command must be separated by semicolon ";"
+>morefunc2_cmd:G28;     # command edit of "more" button2 to dispaly on printing interface, each command must be separated by semicolon ";"
+>morefunc3_cmd:G28;     # command edit of "more" button3 to dispaly on printing interface, each command must be separated by semicolon ";"
+>morefunc4_cmd:G28;     # command edit of "more" button4 to dispaly on printing interface, each command must be separated by semicolon ";"
+>morefunc5_cmd:G28;     # command edit of "more" button5 to dispaly on printing interface, each command must be separated by semicolon ";"
+>cfg_background_color0x614cff     # the color of screen background
+>cfg_title_color0xffffff     # the color of title text
+>cfg_state_bkcolor0x494949     # the color of temperature,fan,(etc)background
+>cfg_state_textcolor0xffffff     # the color of temprature,fan,(etc) text
+>cfg_filename_bkcolor0x494949     # the color of file button
+>cfg_filename_textcolor0xffffff     # the color of file text
+>cfg_btn_bkcolor0x614dff     # Universal button background color
+>cfg_btn_textcolor0xffffff     # Universal button text color
+>cfg_state_btn_bkcolor0x494949     # Status button background color
+>cfg_state_btn_textcolor0xffffff     # Status button text color
+>cfg_back_btn_bkcolor0x494949     # Return button background color
+>cfg_back_btn_textcolor0xffffff     # Return button text color
+>cfg_sel_btn_bkcolor0xf8e45c     # Selected button background color
+>cfg_sel_btn_textcolor0x3d3846     # Selected button text color
+>cfg_dialog_btn_bkcolor0x494949     # Dialog button background color
+>cfg_dialog_btn_textcolor0xffffff     # Dialog button text color
+>cfg_btn_text_offset4000     # position of button font offset bottom(unit:pixel)
+>cfg_screen_display_mode0     # the style of display on the screen home  0:Classic  1:Simple
