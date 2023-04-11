@@ -1,6 +1,8 @@
 # Toybox-3D-Printer-Info
 This repo has several files of settings or informations for the Toybox 3d Printer.
 
+Hit up the [Wiki](https://github.com/tuorum/Toybox-3D-Printer-Info/wiki)
+
 Toybox print settings - from g-code log.txt - The first few lines are interpolated from the gcode extracted from the microSD card in the unit,
       which contains a raw text partition caching gcode that is sent to the printer.  The lines beginning with a semi-colon are comments from the same log
       for a different print.  Based on the terminology alone, it looks like PrusaSlicer or Slic3r output.  These were probably other models from the
